@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<a href="{{data.id}}" onclick="return confirm('Are you sure you  to delete this ?');">Delete</a>
+<script>var deleteLinks = document.querySelectorAll('.delete');
+
+    for (var i = 0; i < deleteLinks.length; i++) {
+      deleteLinks[i].addEventListener('click', function(event) {
+          event.preventDefault();
+    
+          var choice = confirm(this.getAttribute('data-confirm'));
+    
+          if (choice) {
+            window.location.href = this.getAttribute('href');
+          }
+      });
+    }</script>
+{% endblock %}</title>
